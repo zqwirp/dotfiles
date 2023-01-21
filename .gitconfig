@@ -1,0 +1,27 @@
+[core]
+	editor = vim
+	fileMode = false
+[init]
+	defaultBranch = main
+[diff]
+	tool = vimdiff
+[credential]
+	helper = cache --timeout=172800
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	gph = log --all --decorate --oneline --graph
+	dnode = diff -- . ':!package-lock.json'
+	dtnode = difftool -- . ':!package-lock.json'
+	dtg = difftool -- . ':!go.sum'
+	mncnf = merge --no-commit --no-ff
+	rstr = restore --staged
+	rstrw = restore --staged --worktree
+	rsth = reset --hard
+	rsts = reset --soft
+	name = config user.name
+	email = config user.email
+[safe]
+	directory = *
