@@ -12,6 +12,7 @@
 	br = branch
 	ci = commit
 	st = status
+	au = add -u ; only stages changes to already tracked files
 	gph = log --all --decorate --oneline --graph
 	diffnpm = diff -- . ':!package-lock.json' ; compares changes in the current directory but excludes the package-lock.json
 	difftnpm = difftool -- . ':!package-lock.json'
@@ -24,5 +25,5 @@
 	name = config user.name
 	email = config user.email
 	alias = config --get-regexp alias
-[safe]
-	directory = *
+; [safe]
+; 	directory = *
