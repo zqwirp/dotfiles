@@ -13,15 +13,16 @@
 	ci = commit
 	st = status
 	gph = log --all --decorate --oneline --graph
-	dnode = diff -- . ':!package-lock.json'
-	dtnode = difftool -- . ':!package-lock.json'
-	dtg = difftool -- . ':!go.sum'
-	mncnf = merge --no-commit --no-ff
-	rstr = restore --staged
-	rstrw = restore --staged --worktree
-	rsth = reset --hard
-	rsts = reset --soft
+	diffnpm = diff -- . ':!package-lock.json' ; compares changes in the current directory but excludes the package-lock.json
+	difftnpm = difftool -- . ':!package-lock.json'
+	difftg = difftool -- . ':!go.sum'
+	; mergencnf = merge --no-commit --no-ff
+	restores = restore --staged
+	restoresw = restore --staged --worktree
+	reseth = reset --hard
+	resets = reset --soft
 	name = config user.name
 	email = config user.email
+	alias = config --get-regexp alias
 [safe]
 	directory = *
