@@ -11,7 +11,9 @@
 	co = checkout
 	br = branch
 	ci = commit
+	cim = commit -m
 	st = status
+	porm = push origin main ; push
 	addu = add -u ; stage modified and deleted
 	adda = add . ; stage all (new, modified, deleted)
 	gph = log --all --decorate --oneline --graph
