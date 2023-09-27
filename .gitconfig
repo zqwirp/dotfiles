@@ -12,7 +12,8 @@
 	br = branch
 	ci = commit
 	st = status
-	au = add -u ; only stages changes to already tracked files
+	addu = add -u ; stage modified and deleted
+	adda = add . ; stage all (new, modified, deleted)
 	gph = log --all --decorate --oneline --graph
 	diffnpm = diff -- . ':!package-lock.json' ; compares changes in the current directory but excludes the package-lock.json
 	difftnpm = difftool -- . ':!package-lock.json'
