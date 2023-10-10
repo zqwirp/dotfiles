@@ -59,3 +59,7 @@ alias vimfix='vim -p `git diff --name-only`' # -p open the files in separate tab
 # alias pgst='sudo systemctl start postgresql.service'
 # alias sctl='sudo systemctl'
 # alias pgl='sudo su - postgres'
+
+# fnm
+export PATH="/home/permana/.local/share/fnm:$PATH"
+eval "`fnm env`"
