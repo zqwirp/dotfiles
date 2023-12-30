@@ -16,7 +16,7 @@
 	ci = commit
 	cim = commit -m
 	st = status
-	porm = push origin main ; push
+	pom = push origin main ; push
 	gph = log --all --decorate --oneline --graph
 	diffnpm = diff -- . ':!package-lock.json' ; compares changes in the current directory but excludes the package-lock.json
 	difftnpm = difftool -- . ':!package-lock.json'
