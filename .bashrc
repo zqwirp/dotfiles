@@ -18,35 +18,43 @@ export EDITOR='vim'
 # Java program workaround config
 if command -v java &> /dev/null
 then
-    export _JAVA_AWT_WM_NONREPARENTING=1
+	export _JAVA_AWT_WM_NONREPARENTING=1
 fi
 
 # NPM prefix configuration
 if command -v npm &> /dev/null
 then
-    # To allow global package installations for the current user
-    export npm_config_prefix="$HOME/.local" # https://wiki.archlinux.org/title/node.js_#Allow_user-wide_installations
+	# To allow global package installations for the current user
+	export npm_config_prefix="$HOME/.local" # https://wiki.archlinux.org/title/node.js_#Allow_user-wide_installations
 fi
 
 # GO Language PATH and binary PATH configuration
 if command -v go &> /dev/null
 then
-    export GOPATH=$(go env GOPATH)
-    export GOBIN="$(go env GOPATH)/bin"
-    export PATH="$GOBIN:$PATH"
+	GOPATH="$(go env GOPATH)"
+	GOBIN="$(go env GOPATH)/bin"
+	export PATH="$GOBIN:$PATH"
 fi
 
 # Ruby PATH and binary PATH configuration
 if command -v ruby &> /dev/null
 then
-    export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-    export PATH="$GEM_HOME/bin:$PATH"
+	GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+	export PATH="$GEM_HOME/bin:$PATH"
+fi
+
+# Composer PATH configuration
+if command -v composer &> /dev/null
+then
+	COMPOSER="$HOME/.config/composer/vendor/bin"
+	export PATH="$COMPOSER:$PATH"
 fi
 
 # Local binary PATH configuration
-export LOCALBIN="$HOME/.local/bin"
-export MYSCRIPT="$HOME/.local/my-sh" # my shell script collection
-export PATH="$MYSCRIPT:$LOCALBIN:$PATH"
+LOCALBIN="$HOME/.local/bin"
+MYSCRIPT="$HOME/.local/my-sh" # my shell script collection
+MYBINARY="$HOME/.local/my-bin"
+export PATH="$MYBINARY:$MYSCRIPT:$LOCALBIN:$PATH"
 
 # Aliases
 alias sysleep='sudo systemctl hybrid-sleep'
@@ -61,5 +69,5 @@ alias vimfix='vim -p `git diff --name-only`' # -p open the files in separate tab
 # alias pgl='sudo su - postgres'
 
 # fnm
-export PATH="/home/permana/.local/share/fnm:$PATH"
-eval "`fnm env`"
+#export PATH="/home/permana/.local/share/fnm:$PATH"
+#eval "`fnm env`"
