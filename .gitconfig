@@ -19,7 +19,8 @@
 	cian = commit --amend --no-edit
 	st = status
 	pom = push origin main ; push
-	gph = log --all --decorate --oneline --graph
+	gphf = log --all --decorate --oneline --graph
+	gph = log --all --decorate --oneline --graph -n 10
 	diffnpm = diff -- . ':!package-lock.json' ; compares changes in the current directory but excludes the package-lock.json
 	difftnpm = difftool -- . ':!package-lock.json'
 	difftg = difftool -- . ':!go.sum'
@@ -31,5 +32,9 @@
 	name = config user.name
 	email = config user.email
 	alias = config --get-regexp alias
+	clone1 = clone --depth=1
+	suba = submodule add
 ; [safe]
 ; 	directory = *
+[pull]
+	ff = only
