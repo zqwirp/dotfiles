@@ -14,6 +14,12 @@ export HISTCONTROL=$HISTCONTROL:ignorespace
 
 # Environment
 export EDITOR='vim'
+#
+# Local binary PATH configuration
+LOCALBIN="$HOME/.local/bin"
+MYSCRIPT="$HOME/.local/my-sh" # my shell script collection
+MYBINARY="$HOME/.local/my-bin"
+export PATH="$PATH:$MYBINARY:$MYSCRIPT:$LOCALBIN"
 
 # Java program workaround config
 if command -v java &> /dev/null
@@ -31,30 +37,25 @@ fi
 # GO Language PATH and binary PATH configuration
 if command -v go &> /dev/null
 then
-	GOPATH="$(go env GOPATH)"
-	GOBIN="$(go env GOPATH)/bin"
-	export PATH="$GOBIN:$PATH"
+	# GOPATH="$(go env GOPATH)"
+	# GOBIN="$(go env GOPATH)/bin"
+	# export PATH="$GOBIN:$PATH"
+	export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
 fi
 
 # Ruby PATH and binary PATH configuration
 if command -v ruby &> /dev/null
 then
 	GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-	export PATH="$GEM_HOME/bin:$PATH"
+	export PATH="$PATH:$GEM_HOME/bin"
 fi
 
 # Composer PATH configuration
 if command -v composer &> /dev/null
 then
 	COMPOSER="$HOME/.config/composer/vendor/bin"
-	export PATH="$COMPOSER:$PATH"
+	export PATH="$PATH:$COMPOSER"
 fi
-
-# Local binary PATH configuration
-LOCALBIN="$HOME/.local/bin"
-MYSCRIPT="$HOME/.local/my-sh" # my shell script collection
-MYBINARY="$HOME/.local/my-bin"
-export PATH="$MYBINARY:$MYSCRIPT:$LOCALBIN:$PATH"
 
 # Aliases
 alias sysleep='sudo systemctl hybrid-sleep'
