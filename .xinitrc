@@ -42,31 +42,7 @@ session=${1:-dwm}
 
 case $session in
 	dwm)
-		# Start the loop
-		while true; do
-			SLEEP=15 # Suspend time
-
-			# Date
-			DATE=$(/usr/bin/date +"%a, %B %d | %H:%M")
-
-			# Battery
-			if [ -d /sys/class/power_supply/BAT0 ]; then
-				BATTERY_STATUS=$(/usr/bin/cat /sys/class/power_supply/BAT0/status)
-				BATTERY_CAPACITY=$(/usr/bin/cat /sys/class/power_supply/BAT0/capacity)
-				BATTERY="$BATTERY_STATUS $BATTERY_CAPACITY"
-			else
-				BATTERY="N/A"
-			fi
-
-			# Memory
-			MEMORY=$(free -m | awk 'NR%2==0 {print $3}')
-
-			# Execute xsetroot
-			xsetroot -name "${MEMORY}Mb | ${BATTERY}% | $DATE"
-
-			sleep $SLEEP # Suspend
-		done &
-
+		# xsetroot -name ""
 		exec dwm
 		;;
 	xfce)
@@ -77,10 +53,8 @@ case $session in
 		export GDK_BACKEND=x11
 
 		exec gnome-session
-
 		;;
-		# No known session, try to run it as command
-		*)
+	*) # No known session, try to run it as command
 		exec $1
 		;;
 esac

@@ -12,6 +12,7 @@
 	br = branch
 	addu = add -u ; stage modified and deleted
 	adda = add . ; stage all (new, modified, deleted)
+	addp = add -p ; stage part
 	addi = add -i ; interactive staging
 	ci = commit
 	cim = commit -m
@@ -21,6 +22,8 @@
 	pom = push origin main ; push
 	gphf = log --all --decorate --oneline --graph
 	gph = log --all --decorate --oneline --graph -n 10
+	diffc = diff --cached
+	difftc = difftool --cached
 	diffnpm = diff -- . ':!package-lock.json' ; compares changes in the current directory but excludes the package-lock.json
 	difftnpm = difftool -- . ':!package-lock.json'
 	difftg = difftool -- . ':!go.sum'

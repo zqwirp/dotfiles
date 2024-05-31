@@ -63,6 +63,7 @@ alias dof='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME' #dotfiles
 alias nnn='nnn -e'
 alias cb='xclip -sel clip'
 alias vimfix='vim -p `git diff --name-only`' # -p open the files in separate tabs while git diff ... list the names of files that have changed
+alias tx='tmux'
 
 # alias pgst='sudo systemctl start postgresql.service'
 # alias sctl='sudo systemctl'
