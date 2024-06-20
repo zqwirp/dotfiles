@@ -45,9 +45,9 @@ case $session in
 		# xsetroot -name ""
 		exec dwm
 		;;
-	xfce)
-		exec startxfce4
-		;;
+#	xfce)
+#		exec startxfce4
+#		;;
 	gnome)
 		export XDG_SESSION_TYPE=x11
 		export GDK_BACKEND=x11

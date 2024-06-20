@@ -17,9 +17,9 @@ export EDITOR='vim'
 #
 # Local binary PATH configuration
 LOCALBIN="$HOME/.local/bin"
-MYSCRIPT="$HOME/.local/my-sh" # my shell script collection
-MYBINARY="$HOME/.local/my-bin"
-export PATH="$PATH:$MYBINARY:$MYSCRIPT:$LOCALBIN"
+MYSCRIPT="$HOME/.local/sh" # my shell script collection
+#MYBINARY="$HOME/.local/my-bin"
+export PATH="$PATH:$MYSCRIPT:$LOCALBIN"
 
 # Java program workaround config
 if command -v java &> /dev/null
@@ -65,10 +65,16 @@ alias cb='xclip -sel clip'
 alias vimfix='vim -p `git diff --name-only`' # -p open the files in separate tabs while git diff ... list the names of files that have changed
 alias tx='tmux'
 
-# alias pgst='sudo systemctl start postgresql.service'
-# alias sctl='sudo systemctl'
-# alias pgl='sudo su - postgres'
+alias enzr='sudo enable-zram.sh'
+alias mdst='sudo systemctl start mariadb.service'
+alias pgst='sudo systemctl start postgresql.service'
+alias dkst='sudo systemctl start docker.service'
+alias batc='cat /sys/class/power_supply/BAT0/capacity'
+alias enstal='enzr && mdst && pgst && dkst'
 
 # fnm
-#export PATH="$HOME/.local/share/fnm:$PATH"
-#eval "`fnm env`"
+#FNM_PATH="/home/permana/.local/share/fnm"
+#if [ -d "$FNM_PATH" ]; then
+#  export PATH="$FNM_PATH:$PATH"
+#  eval "`fnm env`"
+#fi
